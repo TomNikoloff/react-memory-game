@@ -20,11 +20,15 @@ shuffleCards(Images);
 export default function Board(){
 
     const [cards, setCards] = useState(Images);
-
+/*
     const [openCards, setOpenCards] = useState([]);
     const [clearedCards, setClearedCards] = useState({});
+    const [shouldDisableAllCards, setShouldDisableAllCards] = useState(false);
     const [moves, setMoves] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    const [bestScore, setBestScore] = useState(
+        JSON.parse(localStorage.getItem("bestScore")) || Number.POSITIVE_INFINITY
+    );
     const timeout = useRef(null);
 
     const disable = () => {
@@ -33,6 +37,15 @@ export default function Board(){
     
     const enable = () => {
         setShouldDisableAllCards(false);
+    };
+
+    const checkCompletion = () => {
+        if (Object.keys(clearedCards).length === uniqueCardsArray.length) {
+        setShowModal(true);
+        const highScore = Math.min(moves, bestScore);
+        setBestScore(highScore);
+        localStorage.setItem("bestScore", highScore);
+        }
     };
 
     // Check if both the cards have same type. If they do, mark them inactive
@@ -66,11 +79,15 @@ export default function Board(){
         }
     };
 
-    useEffect(() => {
-        if (openCards.length === 2) {
-          setTimeout(evaluate, 500);
-        }
-    }, [openCards]);
+  useEffect(() => {
+    let timeout = null;
+    if (openCards.length === 2) {
+      timeout = setTimeout(evaluate, 300);
+    }
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [openCards]);
 
     const checkIsFlipped = (index) => {
         return openCards.includes(index);
@@ -80,20 +97,33 @@ export default function Board(){
         return Boolean(clearedCards[card.type]);
     };
 
+    const handleRestart = () => {
+        setClearedCards({});
+        setOpenCards([]);
+        setShowModal(false);
+        setMoves(0);
+        setShouldDisableAllCards(false);
+        // set a shuffled deck of cards
+        setCards(shuffleCards(uniqueCardsArray.concat(uniqueCardsArray)));
+    };
+*/
     return (
         <>
             <div className="uk-grid uk-child-width-1-4@m uk-child-width-1-6@l">
-                {cards.map((image, index) => {
+                {cards.map((card, index) => {
 
                     return (
                         <Card 
                             key={uuidv4()}
-                            card={image.image}
+                            card={card}
                             index={index}
+                            /*
                             isDisabled={shouldDisableAllCards}
                             isInactive={checkIsInactive(image.type)}
                             isFlipped={checkIsFlipped(index)}
+                            
                             onClick={handleCardClick}
+                            */
                         />
                     )
                 })}

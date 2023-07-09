@@ -21,32 +21,3 @@
 .uk-grid > div {
   padding-bottom: 40px;
 }
-
-.card-cover {
-  position: relative;
-  background-color: var(--tn-lighter-main);
-  height: 200px;
-  border-radius: 10px;
-  border: 2px solid var(--tn-primary);
-}
-
-.card {
-  position: relative;
-  /*z-index: -1;*/
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  border:  5px solid var(--tn-lighter-main);
-}
-
-.card-logo-overlay {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-logo-overlay img{
-  height: 100px;
-}

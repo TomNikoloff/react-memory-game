@@ -1,23 +1,28 @@
 import React, {useState} from "react";
 
 import tLogo from '../assets/images/t-logo.png';
-import Images from "./Images";
+import "../card.css";
 
-
-export const Card = (props) => {
-
+export const Card = ({onClick, card}) => {
+    const handleCLick = () => {
+        !isFlipped && !isDisabled && onClick(index);
+    }
     return (
         <>
-            <div >
+        /
+            <div 
+            onClick={handleCLick}
+            >
                 <div className="card-cover">
-                    {/*
-                    <div className='card-logo-overlay'>
+                    
+                    <div className='card-face card-front-face'>
                         <div>
                             <img src={tLogo}/>
                         </div>
                     </div>
-                    */}
-                    <img className='card' src={props.card} />
+                    <div className="card-face card-back-face">
+                        <img className='card' src={card.image} />
+                    </div>
                 </div>
             </div>
         </>
