@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
-import tLogo from '../assets/images/t-logo.png';
-import "../Card.css";
+import tLogo from '../../assets/images/t-logo.png';
+import "./Card.css";
 
 export const Card = ({onClick, card, index, isInactive, isFlipped, isDisabled}) => {
 

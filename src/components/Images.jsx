@@ -38,6 +38,7 @@ const ImagesArr = [
         type: 'lola-six',
         image: lolaSix
     },
+    /*
     {
         type: 'lola-seven',
         image: lolaSeven
@@ -62,6 +63,7 @@ const ImagesArr = [
         type: 'lola-twelve',
         image: lolaTwelve
     }
+    */
 ];
 
 ImagesArr.push(...ImagesArr);

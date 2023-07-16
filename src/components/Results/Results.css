@@ -1,0 +1,25 @@
+.uk-modal-dialog {
+    background-color: var(--tn-lighter-main);
+    border: 2px solid var(--tn-primary);
+    border-radius: 10px;
+}
+
+.uk-modal-title {
+    font-size:  3rem;
+    margin: 0;
+    color: var(--tn-primary);
+}
+
+.uk-modal-title > span{
+    color: var(--tn-secondary);
+}
+
+.uk-modal-dialog > p {
+    color: var(--tn-secondary);
+    font-size: large;
+}
+
+.uk-modal-dialog > p > span {
+    color: var(--tn-primary);
+    font-weight: 500;
+}
