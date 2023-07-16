@@ -13,7 +13,7 @@ import lolaEleven from '../assets/images/lolaEleven.jpg';
 import lolaTwelve from '../assets/images/lolaTwelve.jpg';
 
 
-const Images = [
+const ImagesArr = [
     {
         type: 'lola-one',
         image: lolaOne
@@ -64,6 +64,6 @@ const Images = [
     }
 ];
 
-Images.push(...Images);
+ImagesArr.push(...ImagesArr);
 
-export default Images;
+export default ImagesArr;

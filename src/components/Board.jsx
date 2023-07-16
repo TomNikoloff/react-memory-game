@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 
 import {Card} from './Card';
-import Images from "./Images";
+import ImagesArr from "./Images";
 
 import { v4 as uuidv4 } from 'uuid';
 uuidv4();
@@ -22,7 +22,7 @@ const shuffleCards = (array) => {
 export default function Board(){
 
     const [cards, setCards] = useState(
-        () => shuffleCards(Images)
+        () => shuffleCards(ImagesArr)
     );
 
     const [openCards, setOpenCards] = useState([]);
@@ -44,16 +44,18 @@ export default function Board(){
     const enable = () => {
         setShouldDisableAllCards(false);
     };
-
+*/
     const checkCompletion = () => {
-        if (Object.keys(clearedCards).length === uniqueCardsArray.length) {
+        if (Object.keys(clearedCards).length === ImagesArr.length) {
         setShowModal(true);
+        /*
         const highScore = Math.min(moves, bestScore);
         setBestScore(highScore);
         localStorage.setItem("bestScore", highScore);
+        */
         }
     };
-*/
+
     // Check if both the cards have same type. If they do, mark them inactive
     const evaluate = () => {
 
@@ -124,9 +126,10 @@ export default function Board(){
                             index={index}
                             /*
                             isDisabled={shouldDisableAllCards}
-                            isInactive={checkIsInactive(image.type)}
-                            isFlipped={checkIsFlipped(index)}
                             */
+                            isInactive={checkIsInactive(card)}
+                            isFlipped={checkIsFlipped(index)}
+                            
                             onClick={handleCardClick}
                         />
                     )
