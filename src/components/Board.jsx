@@ -13,24 +13,30 @@ const shuffleCards = (array) => {
       array[i] = array[j];
       array[j] = temp;
     }
+
+    return array;
 }
 
-shuffleCards(Images);
+//shuffleCards(Images);
 
 export default function Board(){
 
-    const [cards, setCards] = useState(Images);
-/*
+    const [cards, setCards] = useState(
+        () => shuffleCards(Images)
+    );
+
     const [openCards, setOpenCards] = useState([]);
     const [clearedCards, setClearedCards] = useState({});
-    const [shouldDisableAllCards, setShouldDisableAllCards] = useState(false);
+    //const [shouldDisableAllCards, setShouldDisableAllCards] = useState(false);
     const [moves, setMoves] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    /*
     const [bestScore, setBestScore] = useState(
         JSON.parse(localStorage.getItem("bestScore")) || Number.POSITIVE_INFINITY
     );
+    */
     const timeout = useRef(null);
-
+/*
     const disable = () => {
         setShouldDisableAllCards(true);
     };
@@ -47,7 +53,7 @@ export default function Board(){
         localStorage.setItem("bestScore", highScore);
         }
     };
-
+*/
     // Check if both the cards have same type. If they do, mark them inactive
     const evaluate = () => {
 
@@ -96,7 +102,7 @@ export default function Board(){
     const checkIsInactive = (card) => {
         return Boolean(clearedCards[card.type]);
     };
-
+/*
     const handleRestart = () => {
         setClearedCards({});
         setOpenCards([]);
@@ -111,7 +117,6 @@ export default function Board(){
         <>
             <div className="uk-grid uk-child-width-1-4@m uk-child-width-1-6@l">
                 {cards.map((card, index) => {
-
                     return (
                         <Card 
                             key={uuidv4()}
@@ -121,9 +126,8 @@ export default function Board(){
                             isDisabled={shouldDisableAllCards}
                             isInactive={checkIsInactive(image.type)}
                             isFlipped={checkIsFlipped(index)}
-                            
-                            onClick={handleCardClick}
                             */
+                            onClick={handleCardClick}
                         />
                     )
                 })}

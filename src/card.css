@@ -1,14 +1,21 @@
+.scene {
+  perspective: 600px;
+  height: 200px;
+}
 
-.card-cover {
+.card {
     position: relative;
     background-color: var(--tn-lighter-main);
-    height: 200px;
+    height: 100%;
     border-radius: 10px;
     border: 2px solid var(--tn-primary);
     box-shadow: 0 10px 30px 5px black;
+    transition: 1s;
+    transform-style: preserve-3d;
+    transform-origin: center right; 
   }
   
-  .card {
+  .card-img {
     position: relative;
     z-index: -1;
     object-fit: cover;
@@ -33,9 +40,19 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .card-front-face  img{
     height: 100px;
+  }
+
+  .card-back-face {
+    transform: rotateY(180deg);
+  }
+  
+
+  .card.is-flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+    /*transform: rotateY(180deg);*/
   }
   
 /*

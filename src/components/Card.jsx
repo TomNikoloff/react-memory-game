@@ -9,19 +9,27 @@ export const Card = ({onClick, card}) => {
     }
     return (
         <>
-        /
-            <div 
-            onClick={handleCLick}
-            >
-                <div className="card-cover">
-                    
-                    <div className='card-face card-front-face'>
-                        <div>
-                            <img src={tLogo}/>
+            <div>
+                <div 
+                    className="scene"
+                    /*
+                    className={classnames("card", {
+                        "is-flipped": isFlipped,
+                        "is-inactive": isInactive
+                    })}
+                    onClick={handleCLick}
+                    */
+                    >
+                    <div className="card">
+                        
+                        <div className='card-face card-front-face'>
+                            <div>
+                                <img src={tLogo}/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="card-face card-back-face">
-                        <img className='card' src={card.image} />
+                        <div className="card-face card-back-face">
+                            <img className='card-img' src={card.image} />
+                        </div>
                     </div>
                 </div>
             </div>
