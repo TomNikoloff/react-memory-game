@@ -17,8 +17,6 @@ const shuffleCards = (array) => {
     return array;
 }
 
-//shuffleCards(Images);
-
 export default function Board(){
 
     const [cards, setCards] = useState(
@@ -27,7 +25,7 @@ export default function Board(){
 
     const [openCards, setOpenCards] = useState([]);
     const [clearedCards, setClearedCards] = useState({});
-    //const [shouldDisableAllCards, setShouldDisableAllCards] = useState(false);
+    const [shouldDisableAllCards, setShouldDisableAllCards] = useState(false);
     const [moves, setMoves] = useState(0);
     const [showModal, setShowModal] = useState(false);
     /*
@@ -36,7 +34,7 @@ export default function Board(){
     );
     */
     const timeout = useRef(null);
-/*
+
     const disable = () => {
         setShouldDisableAllCards(true);
     };
@@ -44,7 +42,7 @@ export default function Board(){
     const enable = () => {
         setShouldDisableAllCards(false);
     };
-*/
+
     const checkCompletion = () => {
         if (Object.keys(clearedCards).length === ImagesArr.length) {
         setShowModal(true);
@@ -60,6 +58,7 @@ export default function Board(){
     const evaluate = () => {
 
         const [first, second] = openCards;
+        enable();
 
         if (cards[first].type === cards[second].type) {
 
@@ -80,6 +79,7 @@ export default function Board(){
             setOpenCards((prev) => [...prev, index]);
             // increase the moves once we opened a pair
             setMoves((moves) => moves + 1);
+            disable();
         } else {
             // If two cards are already open, we cancel timeout set for flipping cards back
             clearTimeout(timeout.current);
@@ -87,15 +87,19 @@ export default function Board(){
         }
     };
 
-  useEffect(() => {
-    let timeout = null;
-    if (openCards.length === 2) {
-      timeout = setTimeout(evaluate, 300);
-    }
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [openCards]);
+    useEffect(() => {
+        let timeout = null;
+        if (openCards.length === 2) {
+        timeout = setTimeout(evaluate, 300);
+        }
+        return () => {
+        clearTimeout(timeout);
+        };
+    }, [openCards]);
+
+    useEffect(() => {
+        checkCompletion();
+    }, [clearedCards]);
 
     const checkIsFlipped = (index) => {
         return openCards.includes(index);
@@ -104,37 +108,29 @@ export default function Board(){
     const checkIsInactive = (card) => {
         return Boolean(clearedCards[card.type]);
     };
-/*
-    const handleRestart = () => {
-        setClearedCards({});
-        setOpenCards([]);
-        setShowModal(false);
-        setMoves(0);
-        setShouldDisableAllCards(false);
-        // set a shuffled deck of cards
-        setCards(shuffleCards(uniqueCardsArray.concat(uniqueCardsArray)));
-    };
-*/
+
+
+
     return (
         <>
-            <div className="uk-grid uk-child-width-1-4@m uk-child-width-1-6@l">
-                {cards.map((card, index) => {
-                    return (
-                        <Card 
-                            key={uuidv4()}
-                            card={card}
-                            index={index}
-                            /*
-                            isDisabled={shouldDisableAllCards}
-                            */
-                            isInactive={checkIsInactive(card)}
-                            isFlipped={checkIsFlipped(index)}
-                            
-                            onClick={handleCardClick}
-                        />
-                    )
-                })}
-            </div>  
+            <div className="board">
+                <div className="uk-grid uk-child-width-1-3 uk-child-width-1-4@s uk-child-width-1-6@l">
+                    {cards.map((card, index) => {
+                        return (
+                            <Card 
+                                key={index}
+                                card={card}
+                                index={index}
+                                isDisabled={shouldDisableAllCards}
+                                isInactive={checkIsInactive(card)}
+                                isFlipped={checkIsFlipped(index)}
+                                
+                                onClick={handleCardClick}
+                            />
+                        )
+                    })}
+                </div>  
+            </div>
         </>
     )
 }

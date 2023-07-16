@@ -1,27 +1,22 @@
 import React, {useState} from "react";
 
 import tLogo from '../assets/images/t-logo.png';
-import "../card.css";
+import "../Card.css";
 
-export const Card = ({onClick, card}) => {
+export const Card = ({onClick, card, index, isInactive, isFlipped, isDisabled}) => {
+
     const handleCLick = () => {
         !isFlipped && !isDisabled && onClick(index);
-    }
+    };
+
     return (
         <>
             <div>
-                <div 
-                    className="scene"
-                    /*
-                    className={classnames("card", {
-                        "is-flipped": isFlipped,
-                        "is-inactive": isInactive
-                    })}
-                    onClick={handleCLick}
-                    */
+                <div className="scene">
+                    <div                     
+                        className={"card " + (isFlipped ? "is-flipped" : "") + (isInactive ? " is-inactive" : "")}
+                        onClick={handleCLick}
                     >
-                    <div className="card">
-                        
                         <div className='card-face card-front-face'>
                             <div>
                                 <img src={tLogo}/>
@@ -33,7 +28,6 @@ export const Card = ({onClick, card}) => {
                     </div>
                 </div>
             </div>
-        </>
-        
+        </>    
     )
 }

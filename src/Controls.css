@@ -1,0 +1,23 @@
+.control-btn {
+    border: 2px solid var(--tn-primary);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: var(--tn-primary);
+    transition: var(--tn-tansition);
+    background-color: transparent;
+    font-size: large;
+}
+
+.control-btn:hover {
+    outline: none;
+    box-shadow: 3px 3px 0 0 var(--tn-primary);
+    transform: translate(-4px, -4px);
+    color: var(--tn-primary);
+}
+
+.control-heading {
+    color: var(--tn-secondary);
+    font-weight: 500;
+    font-size: large;
+}
