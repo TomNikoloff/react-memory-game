@@ -1,6 +1,6 @@
 .scene {
   perspective: 600px;
-  height: 250px;
+  height: 150px;
 }
 
 .card {
@@ -43,7 +43,7 @@
   }
 
   .card-front-face  img{
-    height: 100px;
+    height: 60px;
   }
 
   .card-back-face {
@@ -61,38 +61,17 @@
     /*transform: translateX(-100%) rotateY(-180deg);*/
   }
   
-/*
-  .card {
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    box-shadow: 2px 2px 4px 4px #DEDEDE;
-    transition: 0.3s;
-    transform-style: preserve-3d;
-    position: relative;
-    cursor: pointer;
-    
-    .card img {
-      width: 95%;
-      height: 95%;
-    }
-    
-    .card-face {
-      backface-visibility: hidden;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      &.card-back-face {
-        transform: rotateY(180deg);
-      }
-    }
-  
-    &.is-flipped {
-      transform: rotateY(180deg);
-    }
-  
-    &.is-inactive {
-      // visibility: hidden;
-      opacity: 0;
-    }
-  }*/
+
+  /* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+  .scene {
+    perspective: 600px;
+    height: 250px;
+  }
+
+  .card-front-face  img{
+    height: 100px; 
+  }
+
+}

@@ -4,7 +4,7 @@ import './Header.css';
 export default function Header() {
   return (
     <>
-      <div className="header">
+      <div className="header uk-animation-slide-top uk-margin-bottom">
         <img src={logo} alt="Logo" height={100} />
         <div className='uk-text-center'>
             <h1>Memory Game</h1>

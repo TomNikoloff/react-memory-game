@@ -5,8 +5,6 @@ import {Controls} from '../Controls/Controls';
 import {Results} from '../Results/Results'
 import ImagesArr from "../Images";
 
-import { v4 as uuidv4 } from 'uuid';
-uuidv4();
 
 const shuffleCards = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -149,13 +147,16 @@ export default function Board(){
 
         } else {
 
-            return <p className="control-heading"><span>{minutes}</span> Mins <span>{getSeconds}</span> Secs</p>;
+            return <p className="control-heading"><span>{minutes}</span> Mins <br className="uk-hidden@s" /><span>{getSeconds}</span> Secs</p>;
 
         }
 
     }
 
     const handleRestart = () => {
+
+        console.log('test');
+
         // Reset Timer
         handleTimerReset();
 
@@ -176,8 +177,8 @@ export default function Board(){
                 timer={formatTime(timer)}
                 reset={handleRestart}
             />
-            <div className="board uk-padding uk-padding-remove-top">
-                <div className="uk-grid uk-child-width-1-4">
+            <div className="board uk-padding-small uk-padding-remove-top uk-animation-slide-bottom">
+                <div className="uk-grid uk-child-width-1-4 board-grid">
                     {cards.map((card, index) => {
                         return (
                             <Card 

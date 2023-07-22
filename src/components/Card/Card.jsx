@@ -11,7 +11,7 @@ export const Card = ({onClick, card, index, isInactive, isFlipped, isDisabled}) 
 
     return (
         <>
-            <div>
+            <div className="">
                 <div className="scene">
                     <div                     
                         className={"card " + (isFlipped ? "is-flipped" : "") + (isInactive ? " is-inactive" : "")}

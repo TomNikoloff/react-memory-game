@@ -1,6 +1,13 @@
 import './Results.css';
 
 export const Results =({moves, timer, reset}) => {
+
+    
+    UIkit.util.on('#results_modal', 'hide', function (event) {
+        // do something
+        reset();
+    });
+    
     return (
 
         <div id="results_modal" className="uk-flex-top" uk-modal="bg-close: false;">
@@ -16,7 +23,7 @@ export const Results =({moves, timer, reset}) => {
                 {timer}
                 <hr className='uk-divider-icon' />
                 <div className='uk-flex uk-flex-center'>
-                    <button onClick={reset} type="button" className="uk-button control-btn uk-modal-close">Restart Game</button>
+                    <button type="button" className="uk-button control-btn uk-modal-close">Restart Game</button>
                 </div>
             </div>
         </div>
