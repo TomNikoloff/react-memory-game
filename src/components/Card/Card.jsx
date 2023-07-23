@@ -19,7 +19,7 @@ export const Card = ({onClick, card, index, isInactive, isFlipped, isDisabled}) 
                     >
                         <div className='card-face card-front-face'>
                             <div>
-                                <img src={tLogo}/>
+                                <img className="card-logo" src={tLogo}/>
                             </div>
                         </div>
                         <div className="card-face card-back-face">

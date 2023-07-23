@@ -18,6 +18,18 @@
   color: var(--tn-primary);
 }
 
+.box-shadow-hover:hover {
+  box-shadow: 0 28px 100px 25px black;
+  transition: 0.2s ease-in-out;
+}
+
+.rotate:hover
+{
+    -webkit-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 640px) {
 
