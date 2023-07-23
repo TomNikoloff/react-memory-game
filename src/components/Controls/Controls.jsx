@@ -1,6 +1,6 @@
 import "./Controls.css";
 
-export const Controls =({moves, timer, reset}) => {
+export const Controls = ({moves, timer, reset}) => {
     return (
         <>
             <div className="contols uk-animation-scale-up">
