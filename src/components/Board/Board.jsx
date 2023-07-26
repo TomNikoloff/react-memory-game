@@ -155,8 +155,6 @@ export default function Board(){
 
     const handleRestart = () => {
 
-        console.log('test');
-
         // Reset Timer
         handleTimerReset();
 
