@@ -25,6 +25,7 @@
 
 .rotate:hover
 {
+    transition: 0.2s ease-in-out;
     -webkit-transform: rotateZ(-30deg);
     -ms-transform: rotateZ(-30deg);
     transform: rotateZ(-30deg);
